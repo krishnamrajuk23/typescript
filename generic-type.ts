@@ -23,3 +23,16 @@ function listToDict<T>(lists: T[], callback: (list: T) => string): { [k:string]:
 }
 
 listToDict<PhoneInfo>(phoneList, (list) => list.customerId);
+
+interface Ground{
+  liveNature: 'walk';
+}
+
+interface Water{
+  liveNature: 'swim';
+}
+
+type LiveType<T> = T extends 'ground' ? Ground : Water;
+
+
+let animal: LiveType<'ground'>;
